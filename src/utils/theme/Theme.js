@@ -15,8 +15,8 @@ export const appTheme = createMuiTheme({
       header: '#8299a2'
     }
   },
-
   typography: {
+        fontFamily: `"Poppins", "Helvetica", "Arial", "sans-serif"`,
     h1:{
       color: '#3485a1'
     },
