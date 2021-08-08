@@ -10,7 +10,6 @@ import logo from '../../logo.jpg';
 import { useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
-import { colors } from "../../utils/constanst/Colors";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -40,15 +39,7 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: '6px',
         fontWeight: 'bold',
         backgroundColor: 'red'
-        // border: '2px solid red'
     },
-    // tabRoot: {
-    //     "&:hover": {
-    //       backgroundColor: colors.red,
-          
-    //     }
-    //   },
-    
 }));
 
 export const Navbar = ()=> {
@@ -83,7 +74,6 @@ export const Navbar = ()=> {
                     </IconButton>
                     <div className={classes.btnSection}>
                         <Tabs>
-                        {/* classes={{root: classes.tabRoot}} */}
                             <Tab className={classes.tabs} label='Used Cars' />
                             <Tab className={classes.tabs} label='New Cars'/>
                             <Tab className={classes.tabs} label='Blogs' />

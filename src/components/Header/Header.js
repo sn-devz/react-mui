@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
         borderTopRightRadius:8,
         borderBottomRightRadius:8,
         display:'flex',
-           alignItems:'center',
+        alignItems:'center',
        },
        buttonIconStyle: {
            margin: '0 auto',
@@ -101,7 +101,6 @@ export const Header = ()=> {
                         <div className={classes.menuButton}>
                             <SearchIcon color="inherit" className={classes.buttonIconStyle} /> 
                         </div>
-                
                 </div>
                 <p className={classes.filters}>Advanced Filter</p>
             </div>
