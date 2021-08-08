@@ -16,7 +16,12 @@ export const appTheme = createMuiTheme({
     }
   },
   typography: {
-        fontFamily: `"Poppins", "Helvetica", "Arial", "sans-serif"`,
+    // fontFamily: `Poppins Helvetica Arial sans-serif`,
+    button: {
+      textTransform: 'capitalize',
+      fontSize: '1rem'
+    },
+    fontFamily: `'Muli', Arial,Helvetica,sans-serif`,
     h1:{
       color: '#3485a1'
     },
