@@ -13,7 +13,7 @@ import SearchIcon from '@material-ui/icons/Search';
 const useStyles = makeStyles((theme) => ({
     headerImg: {
         height: '90vh', 
-        position: 'fixed',
+        width: '100%',
         alignItems:'center',
         justifyContent:'center',
         [theme.breakpoints.down("xs")]: {
