@@ -9,7 +9,7 @@ import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      backgroundColor:'#28898c',
+      backgroundColor:colors.themeColor1,
       paddingTop:100, 
       paddingBottom:50
     },
@@ -20,15 +20,13 @@ const useStyles = makeStyles((theme) => ({
         fontWeight:'bold',
         fontSize:30
     },
-    bulletStyle: {
-        color:"blue",
-    },
+  
     listStyle: {
         color:colors.white,
         marginBottom:10,
         fontSize:15,
         "&:hover": {
-           color: colors.red,
+           color: colors.themeColor2,
         }
     },
     pStyle: {
