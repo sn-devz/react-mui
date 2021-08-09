@@ -9,7 +9,6 @@ import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      flexGrow: 1,
       backgroundColor:'#28898c',
       paddingTop:100, 
       paddingBottom:50
@@ -99,13 +98,13 @@ export const Footer = ()=> {
     const classes = useStyles();
 
     return(
-            <Grid container spacing={3} className={classes.root}>
-                <Grid item xs={12} sm={2}>
+            <Grid container  className={classes.root}>
+                <Grid item xs={12} sm={3} md={2} >
                         <h2 className={classes.logoText}>CarsRivers</h2>
                 </Grid>
-                <Grid item xs={12} sm={3}>
-                    <Grid container xs={12}>
-                        <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={3}  md={3} >
+                    <Grid container xs={12} >
+                        <Grid item xs={12} sm={4} >
                             <div >
                                 <ul>
                                     <li className={classes.listStyle}>Listing</li>
@@ -114,7 +113,7 @@ export const Footer = ()=> {
                                 </ul>
                             </div>
                         </Grid>
-                        <Grid item xs={12} sm={6}>
+                        <Grid item xs={12} sm={4}>
                         <div >
                             <ul>
                                     <li className={classes.listStyle}>Blogs</li>
@@ -125,10 +124,10 @@ export const Footer = ()=> {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid item xs={12} sm={5}>
+                <Grid item xs={12} sm={3} md={5}>
                         <p className={classes.pStyle}>Award-winning, family owned dealership of new and pre-owned vehicles with several locations across the city. Lowest prices and the best customer service guaranteed.</p>
                 </Grid>
-                <Grid item xs={12} sm={2}>
+                <Grid item xs={12} sm={3} md={2}>
                     <div className={classes.addressContainer}>
                         <h2 className={classes.phnNo}>Phone Number</h2>
                         <p className={classes.basicText}>carsriver@gmail.com</p>
