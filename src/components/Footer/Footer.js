@@ -5,7 +5,6 @@ import { colors, white } from "../../utils/constanst/Colors";
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
-import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -98,7 +97,7 @@ export const Footer = ()=> {
     return(
             <Grid container  className={classes.root}>
                 <Grid item xs={12} sm={3} md={2} >
-                        <h2 className={classes.logoText}>CarsRivers</h2>
+                        <h2 className={classes.logoText}>Carsrivers</h2>
                 </Grid>
                 <Grid item xs={12} sm={3}  md={3} >
                     <Grid container xs={12} >

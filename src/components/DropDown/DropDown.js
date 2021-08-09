@@ -27,7 +27,6 @@ import { colors } from "../../utils";
     }),
     clearIndicator: provided => ({
       ...provided,
-      
     }),
     dropdownIndicator: provided => ({
       ...provided,

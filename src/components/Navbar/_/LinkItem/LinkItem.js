@@ -1,7 +1,6 @@
 import {
   makeStyles,
   Typography,
-  Theme,
   createStyles,
   Box,
 } from "@material-ui/core";
@@ -36,21 +35,13 @@ const useStyles = makeStyles((theme) =>
       paddingTop: '5px',
       paddingBottom: '5px',
       fontWeight: 600
-      // "&:hover": {
-      //   borderBottom: '5px solid',
-      //   borderBottomColor: colors.themeColor2,
-      // }
     },
     itemBgBlack: {
       fontSize: "1rem",
       color: 'black',
       paddingTop: '5px',
       paddingBottom: '5px',
-      // fontWeight: 'bold',
-      // "&:hover": {
-      //   borderBottom: '5px solid',
-      //   borderBottomColor: colors.themeColor2,
-      // }
+      fontWeight: 600
     },
   })
 );
