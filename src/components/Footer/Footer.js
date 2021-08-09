@@ -136,10 +136,10 @@ export const Footer = ()=> {
                 </Grid>
                     <div className={classes.divider}/>
                 <Grid container xs={12} className={classes.gridContainer}>
-                    <Grid item  xs={12} sm={10}  style={{paddingLeft:30,}}>
+                    <Grid item  xs={12} sm={6} md={10} style={{paddingLeft:30,}}>
                         <p className={classes.copyTextStyle}>Copyright © 2021. All rights reserved. Privacy Policy</p>
                     </Grid>
-                    <Grid item  xs={12} sm={2}>
+                    <Grid item  xs={12} sm={6} md={2}>
                            <div className={classes.iconContainer}>
                                <div className={classes.iconDivStyle}>
                                    <FacebookIcon className={classes.iconStyle}/>
