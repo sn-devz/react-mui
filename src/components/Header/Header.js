@@ -8,6 +8,7 @@ import { DropDown } from "../DropDown/DropDown";
 import { citesName, priceRange } from "../../utils/constanst/Constants";
 import { colors } from "../../utils/constanst/Colors";
 import SearchIcon from '@material-ui/icons/Search';
+import {Sedan, Coupe, SUV, Hatchback, Convertible} from '../../assets/icons/index';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -16,8 +17,12 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         alignItems:'center',
         justifyContent:'center',
+        [theme.breakpoints.down("sm")]: {
+            height: '110vh'
+        },
         [theme.breakpoints.down("xs")]: {
-            height: '100vh'
+            height: '130vh',
+            imageRendering: 'pixelated'
         },
     },
     container: {
@@ -33,6 +38,9 @@ const useStyles = makeStyles((theme) => ({
         marginTop:65,
         [theme.breakpoints.down("sm")]: {
             fontSize:'30px',
+        },
+        [theme.breakpoints.down("xs")]: {
+            fontSize:'25px',
         },
     },
     subHeading: {
@@ -110,8 +118,31 @@ const useStyles = makeStyles((theme) => ({
         height:35,
         color: colors.white,
         alignSelf: 'center'
+    },
+    categoryContainer: {
+        padding: '0.5rem 1rem',
+        display: 'flex',
+        justifyContent: 'center'
+    },
+    carCategory: {
+        height: '4rem',
+        width: '4rem',
+        margin: '0.2rem 0.6rem',
+        borderRadius: '50%',
+        border: `0.15rem solid ${colors.white}`,
+        '&:hover': {
+            borderColor: colors.themeColor2
+        }
+    },
+    categoryLogo: {
+        width: '3rem',
+        alignSelf: 'center',
+        marginTop: '1.2rem'
+    },
+    categoryText: {
+        color: colors.white,
+        fontWeight: 500
     }
-  
 }));   
 export const Header = ()=> {
     const classes = useStyles();
@@ -149,6 +180,40 @@ export const Header = ()=> {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className={classes.categoryContainer}>
+                    <Grid container justifyContent='center'>
+                        <Grid item>
+                            <div className={classes.carCategory}>
+                                <img src={Sedan} className={classes.categoryLogo}/>
+                            </div>
+                            <Typography className={classes.categoryText}>Sedan</Typography>
+                        </Grid>
+                        <Grid item>
+                            <div className={classes.carCategory}>
+                                <img src={Coupe} className={classes.categoryLogo}/>
+                            </div>
+                            <Typography className={classes.categoryText}>Coupe</Typography>
+                        </Grid>
+                        <Grid item>
+                            <div className={classes.carCategory}>
+                                <img src={SUV} className={classes.categoryLogo}/>
+                            </div>
+                            <Typography className={classes.categoryText}>SUV</Typography>
+                        </Grid>
+                        <Grid item>
+                            <div className={classes.carCategory}>
+                                <img src={Hatchback} className={classes.categoryLogo}/>
+                            </div>
+                            <Typography className={classes.categoryText}>Hatchback</Typography>
+                        </Grid>
+                        <Grid item>
+                            <div className={classes.carCategory}>
+                                <img src={Convertible} className={classes.categoryLogo}/>
+                            </div>
+                            <Typography className={classes.categoryText}>Convertible</Typography>
+                        </Grid>
+                    </Grid>
                 </div>
             </div>
         </div>
