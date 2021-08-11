@@ -21,9 +21,12 @@ const useStyles = makeStyles((theme) => ({
     },
   
     listStyle: {
+        marginBottom:10
+    },
+    listStyleSpan: {
         color:colors.white,
-        marginBottom:10,
         fontSize:15,
+        marginBottom:10,
         "&:hover": {
            color: colors.themeColor2,
         }
@@ -87,7 +90,15 @@ const useStyles = makeStyles((theme) => ({
          textAlign:'center',
          color: colors.white,
          margin:0
-     }
+     },
+     listContainer:{ 
+         display:'flex', 
+         alignItems:'center',
+         justifyContent:'center'
+        },
+         bulletColor: {
+             color: colors.themeColor2
+        }
   }));
   
 
@@ -99,23 +110,35 @@ export const Footer = ()=> {
                 <Grid item xs={12} sm={3} md={2} >
                         <h2 className={classes.logoText}>Carsrivers</h2>
                 </Grid>
-                <Grid item xs={12} sm={3}  md={3} >
+                <Grid item xs={12} sm={3}  md={3}  >
                     <Grid container xs={12} >
-                        <Grid item xs={12} sm={4} >
-                            <div >
-                                <ul>
-                                    <li className={classes.listStyle}>Listing</li>
-                                    <li className={classes.listStyle}>FAQ</li>
-                                    <li className={classes.listStyle}>About Us</li>
+                        <Grid item xs={6} sm={4} >
+                            <div className={classes.listContainer}>
+                                <ul className={classes.bulletColor}>
+                                    <li className={classes.listStyle}>
+                                        <span className={classes.listStyleSpan}>Listing</span>
+                                    </li>
+                                    <li className={classes.listStyle}>
+                                        <span className={classes.listStyleSpan}>FAQ</span>
+                                    </li>
+                                    <li className={classes.listStyle}>
+                                        <span className={classes.listStyleSpan}>About Us</span>
+                                    </li>
                                 </ul>
                             </div>
                         </Grid>
-                        <Grid item xs={12} sm={4}>
-                        <div >
-                            <ul>
-                                    <li className={classes.listStyle}>Blogs</li>
-                                    <li className={classes.listStyle}>Our Team</li>
-                                    <li className={classes.listStyle}>Contact</li>
+                        <Grid item xs={6} sm={4}>
+                        <div className={classes.listContainer}>
+                            <ul  className={classes.bulletColor}>
+                                    <li className={classes.listStyle}>
+                                        <span className={classes.listStyleSpan}>Blogs</span>
+                                    </li>
+                                    <li className={classes.listStyle}>
+                                        <span className={classes.listStyleSpan}>Our Team</span>
+                                    </li>
+                                    <li className={classes.listStyle}>
+                                        <span className={classes.listStyleSpan}>Contact</span>
+                                    </li>
                                 </ul>
                         </div>
                         </Grid>
