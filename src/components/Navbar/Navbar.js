@@ -54,7 +54,10 @@ const useStyles = makeStyles((theme) => ({
     loginBtn: {
         fontWeight: 'bold',
         alignSelf: 'center',
-        paddingRight: '20px'
+        paddingRight: '20px',
+        "&:hover": {
+            color: colors.themeColor2,
+          }
     }
     // tabRoot: {
     //     "&:hover": {
@@ -77,7 +80,7 @@ export const Navbar = ()=> {
 
     useEffect(() => {
         const handleScroll = () => {
-            const show = window.scrollY > 20;
+            const show = window.scrollY > 500;
             if(show){
                 setNavBackground("rootSolid");
             }else{

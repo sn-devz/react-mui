@@ -34,15 +34,22 @@ const useStyles = makeStyles((theme) =>
       color: 'white',
       paddingTop: '5px',
       paddingBottom: '5px',
-      fontWeight: 600
+      fontWeight: 600,
+    
     },
     itemBgBlack: {
       fontSize: "1rem",
       color: 'black',
       paddingTop: '5px',
       paddingBottom: '5px',
-      fontWeight: 600
+      fontWeight: 600,
+      
     },
+    hover: {
+      "&:hover": {
+        color: colors.themeColor2,
+      }
+    }
   })
 );
 
@@ -68,7 +75,7 @@ export const LinkItem = ({
         activeClassName={classes.activeRoute}
       >
         <Box textAlign="center" color="inherit" fontWeight={500} mt={0}>
-          <Typography className={type=='root'? classes.itemBgWhite: classes.itemBgBlack}>
+          <Typography className={[type=='root'? classes.itemBgWhite: classes.itemBgBlack,classes.hover]}>
             {label}
           </Typography>
         </Box>
