@@ -112,7 +112,7 @@ export const Footer = ()=> {
                 </Grid>
                 <Grid item xs={12} sm={3}  md={3}  >
                     <Grid container xs={12} >
-                        <Grid item xs={6} sm={4} >
+                        <Grid item xs={6} sm={5} >
                             <div className={classes.listContainer}>
                                 <ul className={classes.bulletColor}>
                                     <li className={classes.listStyle}>
@@ -127,7 +127,7 @@ export const Footer = ()=> {
                                 </ul>
                             </div>
                         </Grid>
-                        <Grid item xs={6} sm={4}>
+                        <Grid item xs={6} sm={5}>
                         <div className={classes.listContainer}>
                             <ul  className={classes.bulletColor}>
                                     <li className={classes.listStyle}>

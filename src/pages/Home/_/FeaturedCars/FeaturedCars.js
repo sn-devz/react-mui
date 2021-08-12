@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Box, makeStyles, Typography } from '@material-ui/core';
 import Carousel from 'react-multi-carousel';
 import {ListingCard} from '../../../../components'
@@ -35,36 +35,43 @@ const responsive = {
     }
 };
 export const FeaturedCars = ()=> {
+    const [listItem, setListItem] = useState([
+        {
+            name: <ListingCard/>
+        },
+        {
+            name: <ListingCard/>
+        },
+        {
+            name: <ListingCard/>
+        },
+        {
+            name: <ListingCard/>
+        },
+        {
+            name: <ListingCard/>
+        },
+        {
+            name: <ListingCard/>
+        },
+        {
+            name: <ListingCard/>
+        },
+        {
+            name: <ListingCard/>
+        }
+    ])
     const classes = useStyles();
     return(
         <div className={classes.main}>
             <Typography variant='h2'>Featured Cars</Typography>
             <Box mt={4}>
                 <Carousel responsive={responsive}>
+                {listItem.map((items) => 
                     <div className={classes.cardRoot}>
-                        <ListingCard/>
+                        {items.name}
                     </div>
-                    <div className={classes.cardRoot}>
-                        <ListingCard/>
-                    </div>
-                    <div className={classes.cardRoot}>
-                        <ListingCard/>
-                    </div>
-                    <div className={classes.cardRoot}>
-                        <ListingCard/>
-                    </div>
-                    <div className={classes.cardRoot}>
-                        <ListingCard/>
-                    </div>
-                    <div className={classes.cardRoot}>
-                        <ListingCard/>
-                    </div>
-                    <div className={classes.cardRoot}>
-                        <ListingCard/>
-                    </div>
-                    <div className={classes.cardRoot}>
-                        <ListingCard/>
-                    </div>
+                )}
                 </Carousel>
             </Box>
         </div>
