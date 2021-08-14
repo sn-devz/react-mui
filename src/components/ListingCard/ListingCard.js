@@ -5,21 +5,22 @@ import { colors } from "../../utils";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        maxWidth: 300,
+        maxWidth: 800,
         minWidth: 200,
-        borderRadius: '0.7rem'
-    },
+        borderRadius: '0.7rem',
+
+     },
     media: {
-        height: 160,
         width: 'inherit',
         objectFit: 'cover',
         '&:hover': {
-            transform: 'scale(1.1)',
-            transition: 'transform 0.8s'
-        }
+            transform: 'scale(1.05)',
+            transition: 'transform 0.7s'
+        },
     },
     content: {
-        backgroundColor: theme.typography.h2.color
+        backgroundColor: theme.typography.h2.color,
+       
     },
     price: {color: colors.themeColor2},
     divider: {backgroundColor: 'grey'},

@@ -1,14 +1,27 @@
 import React, {useState} from "react";
-import { Box, makeStyles, Typography } from '@material-ui/core';
+import { Box, Grid, makeStyles, Typography } from '@material-ui/core';
 import Carousel from 'react-multi-carousel';
 import {ListingCard} from '../../../../components'
 
 const useStyles = makeStyles((theme) => ({
     main: {
-        padding: '2rem'
+        padding: '2rem',
     },
     cardRoot: {
-        padding: '0 0.5rem'
+        padding: '0 0.5rem',
+        display:'flex'
+    },
+    gridStyle: {
+        paddingTop:'1rem', 
+        paddingRight:'0.5rem', 
+    },
+    gridRightStyle: {
+        paddingTop:'1rem',
+        paddingLeft: '0.5rem'
+
+    },
+    leftGrid:{
+        padding:'1rem',marginTop:'2rem'
     }
 }));
 const responsive = {
@@ -35,45 +48,45 @@ const responsive = {
     }
 };
 export const FeaturedCars = ()=> {
-    const [listItem, setListItem] = useState([
-        {
-            name: <ListingCard/>
-        },
-        {
-            name: <ListingCard/>
-        },
-        {
-            name: <ListingCard/>
-        },
-        {
-            name: <ListingCard/>
-        },
-        {
-            name: <ListingCard/>
-        },
-        {
-            name: <ListingCard/>
-        },
-        {
-            name: <ListingCard/>
-        },
-        {
-            name: <ListingCard/>
-        }
-    ])
+
     const classes = useStyles();
     return(
-        <div className={classes.main}>
-            <Typography variant='h2'>Featured Cars</Typography>
-            <Box mt={4}>
-                <Carousel responsive={responsive}>
+        <Grid container xs={12} className={classes.main }>
+            <Grid item xs={12} sm={12} md={12} >
+                <Typography xs={12} variant='h2'>Featured Cars</Typography>
+                </Grid>
+                <Grid item xs={12} sm={12} md={6} className={classes.leftGrid} >
+                    <ListingCard/>
+                </Grid>
+                <Grid item xs={12} sm={12} md={6} style={{marginTop:'2rem'}}>
+                <Grid container xs={12}  >
+                    <Grid item sm={6} xs={12} className={classes.gridStyle}>
+                        <ListingCard/>
+                    </Grid>
+                    <Grid item sm={6} xs={12} className={classes.gridRightStyle}>
+                        <ListingCard/>
+                    </Grid>
+                    <Grid item sm={6} xs={0} className={classes.gridStyle}>
+                        <ListingCard/>
+                    </Grid>
+                    <Grid item sm={6} xs={0} className={classes.gridRightStyle}>
+                        <ListingCard/>
+                    </Grid>
+                </Grid>
+                </Grid>
+
+                        {/* <ListingCard/>
+                        <ListingCard/> */}
+                    {/* <div className={classes.cardRoot}>
+                        <ListingCard/>
+                        <ListingCard/>
+                    </div> */}                {/* <Carousel responsive={responsive}>
                 {listItem.map((items) => 
                     <div className={classes.cardRoot}>
                         {items.name}
                     </div>
                 )}
-                </Carousel>
-            </Box>
-        </div>
+                </Carousel> */}
+        </Grid>
     )
 }
