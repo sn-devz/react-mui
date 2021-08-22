@@ -1,4 +1,5 @@
 import React from "react";
+import {useHistory} from 'react-router-dom';
 import { makeStyles, Typography, Card, CardActionArea, CardContent, Button, Divider, Box } from '@material-ui/core';
 import CardImage from '../../assets/images/cardImg.jpg';
 import { colors } from "../../utils";
@@ -8,7 +9,6 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: 800,
         minWidth: 200,
         borderRadius: '0.7rem',
-
      },
     media: {
         width: 'inherit',
@@ -18,9 +18,12 @@ const useStyles = makeStyles((theme) => ({
             transition: 'transform 0.7s'
         },
     },
+    bg: {
+        backgroundColor: theme.typography.h2.color,
+    },
     content: {
         backgroundColor: theme.typography.h2.color,
-       
+        paddingTop: '0.5rem'
     },
     price: {color: colors.themeColor2},
     divider: {backgroundColor: 'grey'},
@@ -37,9 +40,10 @@ const useStyles = makeStyles((theme) => ({
 
 export const ListingCard = ()=> {
     const classes = useStyles();
+    const history = useHistory();
     return(
-        <Card className={classes.root}>
-            <CardActionArea>
+        <Card className={classes.root} onClick={()=>{history.push('/car-details')}}>
+            <CardActionArea className={classes.bg}>
                 <img
                 className={classes.media}
                 src={CardImage}

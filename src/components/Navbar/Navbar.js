@@ -13,18 +13,17 @@ import {LinkItem} from "./_/index";
 import {CustomButton} from '../../components';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-      backgroundColor: 'transparent',
+    root: props=> ({
+      backgroundColor: props.pathname==='/'? 'transparent' : theme.typography.h2.color,
       color:'white',
       fontWeight: 'bold',
       boxShadow: '0 0',
       paddingTop: '5px',
       paddingBottom: '5px'
-    },
+    }),
     rootSolid: {
         backgroundColor: 'white',
         fontWeight: 'bold',
-        boxShadow: '0 0',
         paddingTop: '5px',
         paddingBottom: '5px'
     },
@@ -59,13 +58,6 @@ const useStyles = makeStyles((theme) => ({
             color: colors.themeColor2,
           }
     }
-    // tabRoot: {
-    //     "&:hover": {
-    //       backgroundColor: colors.red,
-          
-    //     }
-    //   },
-    
 }));
 const tabs = [
     {label: 'Used Cars', href:'/used-cars'},
@@ -73,14 +65,14 @@ const tabs = [
     {label: 'Blogs', href:'/blogs'},
 ]
 export const Navbar = ()=> {
-    const classes = useStyles();
+    const classes = useStyles({pathname: window.location.pathname});
     const [navBackground, setNavBackground] = useState('root');
     const navRef = useRef();
     navRef.current = navBackground;
 
     useEffect(() => {
         const handleScroll = () => {
-            const show = window.scrollY > 500;
+            const show = window.scrollY > 50;
             if(show){
                 setNavBackground("rootSolid");
             }else{

@@ -1,14 +1,14 @@
-import { createMuiTheme } from "@material-ui/core";
+import { createTheme } from "@material-ui/core";
 import createBreakpoints from "@material-ui/core/styles/createBreakpoints";
 const breakpoints = createBreakpoints({})
-export const appTheme = createMuiTheme({
+export const appTheme = createTheme({
   palette: {
     primary:{
       main:'#f9fafc',
       light:'#fdfdfd',
     },
     secondary:{
-        main:'#10469D',
+      main:'#ff4605',
     }
   },
  
@@ -39,11 +39,13 @@ export const appTheme = createMuiTheme({
       },
     },
     h3:{
-      color: '#9e9fab'
+      color: '#222732',
+      fontSize: '1.8rem',
     },
     h4:{
-      // color: '#4a555a' 
-      color: '#0096d6'
+      color: '#ff4605',
+      fontSize: '1.5rem',
+      fontWeight: 'bold'
     },
     h5:{
       color:'white',
@@ -54,10 +56,14 @@ export const appTheme = createMuiTheme({
       color:'white',
       fontSize: '1.1rem'
     },
+    body1: {
+      fontSize: '0.95rem',
+      fontWeight: 'bold'
+    },
     body2: {
-      color:'grey',
+      color:'#a7a8a8',
       alignSelf: 'center',
-      fontSize: '0.96rem'
+      fontSize: '0.95rem'
     }
   },
   breakpoints: {},
