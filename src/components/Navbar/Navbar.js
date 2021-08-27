@@ -1,4 +1,5 @@
 import React from "react";
+import {useHistory} from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -68,6 +69,7 @@ export const Navbar = ()=> {
     const classes = useStyles({pathname: window.location.pathname});
     const [navBackground, setNavBackground] = useState('root');
     const navRef = useRef();
+    const history = useHistory();
     navRef.current = navBackground;
 
     useEffect(() => {
@@ -106,7 +108,7 @@ export const Navbar = ()=> {
                         <IconButton edge="start" color="inherit" aria-label="menu">
                             <PersonIcon style={{color: colors.themeColor2}}/>
                         </IconButton>
-                        <Typography className={classes.loginBtn}>Log In</Typography>
+                        <Typography className={classes.loginBtn}  onClick={()=>{history.push('/login-register')}}>Log In</Typography>
                         <Typography className={classes.loginBtn}>Register</Typography>
                         <CustomButton name='+ Post An Add' handleClick={()=>{}}/>
                     </div>
