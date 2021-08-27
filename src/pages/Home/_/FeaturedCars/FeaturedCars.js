@@ -53,7 +53,7 @@ export const FeaturedCars = ()=> {
     return(
         <Grid container xs={12} className={classes.main }>
             <Grid item xs={12} sm={12} md={12} >
-                <Typography xs={12} variant='h2'>Featured Cars</Typography>
+                <Typography xs={12} variant='h1'>Featured Cars</Typography>
                 </Grid>
                 <Grid item xs={12} sm={12} md={6} className={classes.leftGrid} >
                     <ListingCard/>

@@ -25,9 +25,6 @@ export const appTheme = createTheme({
     },
     fontFamily: `'Muli', Arial,Helvetica,sans-serif`,
     h1:{
-      color: '#3485a1'
-    },
-    h2:{
       color: '#222732',
       fontWeight: 800,
       fontSize: '2.5rem',
@@ -38,14 +35,31 @@ export const appTheme = createTheme({
         fontSize: '1.5rem',
       },
     },
+    h2:{
+      color: '#222732',
+      fontWeight: 800,
+      fontSize: '1.4rem',
+      [breakpoints.down("sm")]: {
+        fontSize: '1.2rem',
+      },
+      [breakpoints.down("xs")]: {
+        fontSize: '1rem',
+      },
+    },
     h3:{
       color: '#222732',
       fontSize: '1.8rem',
+      [breakpoints.down("xs")]: {
+        fontSize: '1.3rem',
+      },
     },
     h4:{
       color: '#ff4605',
       fontSize: '1.5rem',
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      [breakpoints.down("xs")]: {
+        fontSize: '1.2rem',
+      },
     },
     h5:{
       color:'white',
@@ -58,12 +72,18 @@ export const appTheme = createTheme({
     },
     body1: {
       fontSize: '0.95rem',
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      [breakpoints.down("xs")]: {
+        fontSize: '0.8rem',
+      },
     },
     body2: {
       color:'#a7a8a8',
       alignSelf: 'center',
-      fontSize: '0.95rem'
+      fontSize: '0.95rem',
+      [breakpoints.down("xs")]: {
+        fontSize: '0.8rem',
+      },
     }
   },
   breakpoints: {},

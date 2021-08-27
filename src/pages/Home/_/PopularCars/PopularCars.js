@@ -64,7 +64,7 @@ export const PopularCars = ()=> {
     const classes = useStyles();
     return(
         <div className={classes.main}>
-            <Typography variant='h2'>Popular Makes</Typography>
+            <Typography variant='h1'>Popular Makes</Typography>
             <Box mt={4}>
                 <Carousel responsive={responsive}>
                 {listItem.map((items) => 
