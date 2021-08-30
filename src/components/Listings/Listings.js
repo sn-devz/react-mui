@@ -1,7 +1,8 @@
-import React, {useState} from "react";
+import React from "react";
 import { Box, makeStyles, Typography } from '@material-ui/core';
 import Carousel from 'react-multi-carousel';
-import {ListingCard} from '../../../../components'
+import {ListingCard} from '../ListingCard';
+import {ListingsData} from "../../utils";
 
 const useStyles = makeStyles((theme) => ({
     main: {
@@ -34,42 +35,16 @@ const responsive = {
         items: 1
     }
 };
-export const PopularCars = ()=> {
-    const [listItem, setListItem] = useState([
-        {
-            name: <ListingCard/>
-        },
-        {
-            name: <ListingCard/>
-        },
-        {
-            name: <ListingCard/>
-        },
-        {
-            name: <ListingCard/>
-        },
-        {
-            name: <ListingCard/>
-        },
-        {
-            name: <ListingCard/>
-        },
-        {
-            name: <ListingCard/>
-        },
-        {
-            name: <ListingCard/>
-        }
-    ])
+export const Listings = ({name, headingVariant})=> {
     const classes = useStyles();
     return(
         <div className={classes.main}>
-            <Typography variant='h2'>Popular Makes</Typography>
+            <Typography variant={headingVariant?headingVariant:'h1'}>{name}</Typography>
             <Box mt={4}>
                 <Carousel responsive={responsive}>
-                {listItem.map((items) => 
-                    <div className={classes.cardRoot}>
-                        {items.name}
+                {ListingsData.map((item, index) => 
+                    <div key={index} className={classes.cardRoot}>
+                        <ListingCard data={item}/>
                     </div>
                 )}
                 </Carousel>

@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { Box, Grid, makeStyles, Typography } from '@material-ui/core';
 import Carousel from 'react-multi-carousel';
 import {ListingCard} from '../../../../components'
+import {ListingsData} from "../../../../utils";
 
 const useStyles = makeStyles((theme) => ({
     main: {
@@ -53,24 +54,24 @@ export const FeaturedCars = ()=> {
     return(
         <Grid container xs={12} className={classes.main }>
             <Grid item xs={12} sm={12} md={12} >
-                <Typography xs={12} variant='h2'>Featured Cars</Typography>
+                <Typography xs={12} variant='h1'>Featured Cars</Typography>
                 </Grid>
                 <Grid item xs={12} sm={12} md={6} className={classes.leftGrid} >
-                    <ListingCard/>
+                    <ListingCard data={ListingsData[0]}/>
                 </Grid>
                 <Grid item xs={12} sm={12} md={6} style={{marginTop:'2rem'}}>
                 <Grid container xs={12}  >
                     <Grid item sm={6} xs={12} className={classes.gridStyle}>
-                        <ListingCard/>
+                        <ListingCard data={ListingsData[1]}/>
                     </Grid>
                     <Grid item sm={6} xs={12} className={classes.gridRightStyle}>
-                        <ListingCard/>
+                        <ListingCard data={ListingsData[2]}/>
                     </Grid>
                     <Grid item sm={6} xs={0} className={classes.gridStyle}>
-                        <ListingCard/>
+                        <ListingCard data={ListingsData[3]}/>
                     </Grid>
                     <Grid item sm={6} xs={0} className={classes.gridRightStyle}>
-                        <ListingCard/>
+                        <ListingCard data={ListingsData[4]}/>
                     </Grid>
                 </Grid>
                 </Grid>

@@ -124,9 +124,9 @@ export const LoginRegisterHeader = ({
                   name={"remeber"}
                   // iconStyle={{ fill: "white" }}
                   // color={}
-                  style={{
-                    color: state ? colors.themeColor2 : "lightgray",
-                  }}
+                  // style={{
+                  //   color: state ? colors.themeColor2 : "lightgray",
+                  // }}
                 />
               }
               label="Remember"

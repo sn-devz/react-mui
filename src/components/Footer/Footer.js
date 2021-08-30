@@ -111,7 +111,7 @@ export const Footer = ()=> {
                         <h2 className={classes.logoText}>Carsrivers</h2>
                 </Grid>
                 <Grid item xs={12} sm={3}  md={3}  >
-                    <Grid container xs={12} >
+                    <Grid container >
                         <Grid item xs={6} sm={5} >
                             <div className={classes.listContainer}>
                                 <ul className={classes.bulletColor}>
@@ -155,7 +155,7 @@ export const Footer = ()=> {
                     </div>
                 </Grid>
                     <div className={classes.divider}/>
-                <Grid container xs={12} className={classes.gridContainer}>
+                <Grid container className={classes.gridContainer}>
                     <Grid item  xs={12} sm={6} md={10} style={{paddingLeft:30,}}>
                         <p className={classes.copyTextStyle}>Copyright © 2021. All rights reserved. Privacy Policy</p>
                     </Grid>

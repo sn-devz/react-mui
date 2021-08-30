@@ -57,7 +57,6 @@ export const LinkItem = ({
   href,
   label,
   type,
-  className,
   allowBorder,
 }) => {
   const classes = useStyles({ allowBorder, label, href });
@@ -71,7 +70,7 @@ export const LinkItem = ({
       <NavLink
         to={href}
         isActive={(match) => activeRoute(match)}
-        className={classes.root + " " + classes.navLink + " " + className}
+        className={classes.root + " " + classes.navLink}
         activeClassName={classes.activeRoute}
       >
         <Box textAlign="center" color="inherit" fontWeight={500} mt={0}>
