@@ -14,8 +14,12 @@ const useStyles = makeStyles((theme) => ({
   mainContainer: {
     width: "30rem",
   },
+  heading: {
+    fontSize: "2.3rem",
+    fontSize: "900",
+  },
   headingDesc: {
-    fontWeight: 100,
+    fontWeight: "100",
     marginTop: "1rem",
     color: colors.black,
   },
@@ -34,17 +38,18 @@ const useStyles = makeStyles((theme) => ({
   },
   socialGridDiv: {
     display: "flex",
-    height: "4rem",
+    height: "3.5rem",
     backgroundColor: "white",
-    margin: "0.3rem 0.3rem",
-    border: "0.15rem solid lightgray",
+    margin: "0.3rem 0.45rem",
+    boxShadow: "0 0 4px lightgray",
+    // border: "0.01rem solid lightgray",
     borderRadius: "0.7rem",
-    width: "10rem",
+    width: "10.1rem",
     [breakpoints.down("sm")]: {
       width: "100%",
     },
     "&:hover": {
-      border: "0.1rem solid black",
+      boxShadow: "0 0 2px black",
     },
   },
   socialGrid: {
@@ -54,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
   },
   simpText: {
     color: "#000",
-    fontWeight: "500",
+    fontWeight: "bold",
     fontSize: "0.9rem",
   },
   m: {
@@ -66,10 +71,11 @@ const useStyles = makeStyles((theme) => ({
   checkBoxContainer: { display: "flex", alignItems: "center" },
   modelBtn: {
     backgroundColor: colors.themeColor2,
-    color: "white",
-    padding: "0.8rem 2rem",
+    color: colors.white,
+    padding: "1rem 3rem",
     margin: "1rem 0",
-    borderRadius: "0.3rem",
+    borderRadius: "0.5rem",
+    fontSize: "1.2rem",
   },
   radioContainer: {
     display: "flex",
@@ -116,7 +122,11 @@ export const LoginRegisterHeader = ({
                   checked={state}
                   onChange={handleChange}
                   name={"remeber"}
-                  style={{ color: colors.themeColor2 }}
+                  // iconStyle={{ fill: "white" }}
+                  // color={}
+                  style={{
+                    color: state ? colors.themeColor2 : "lightgray",
+                  }}
                 />
               }
               label="Remember"
@@ -189,7 +199,7 @@ export const LoginRegisterHeader = ({
             <Typography className={classes.heading} variant="h2">
               {heading}
             </Typography>
-            <Typography variant="h4" className={classes.headingDesc}>
+            <Typography variant="h5" className={classes.headingDesc}>
               {desc}
             </Typography>
           </Box>

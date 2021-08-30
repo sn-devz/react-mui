@@ -4,15 +4,11 @@ import { colors } from "../../utils/constanst/Colors";
 
 const useStyles = makeStyles((theme) => ({
   item: {
-    width: "100%",
-    margin: "0.1rem ",
-    [theme.breakpoints.down("sm")]: {
-      width: "99%",
-    },
+    margin: "0.2rem ",
   },
   carsModal: {
     height: "50px",
-    width: "90%",
+    width: "100%",
     backgroundColor: colors.white,
     borderRadius: "0.5rem",
     border: "1px solid lightgrey",
@@ -26,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("sm")]: {
       width: "inherit",
+      width: "99%",
     },
   },
 }));

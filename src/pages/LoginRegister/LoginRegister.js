@@ -38,7 +38,7 @@ export const LoginRegister = () => {
     },
     {
       inputName: "Password",
-      inputType: "password",
+      inputType: "text",
       inputPlactHolder: "Password",
     },
   ];
@@ -48,13 +48,13 @@ export const LoginRegister = () => {
         <LoginRegisterHeader
           heading={"Log in to your account"}
           desc={"Welcome back! Sign in to your account"}
-          backcolor={"lightblue"}
+          backcolor={"#f2f5fb"}
           inputItem={loginInputItem}
           type={"login"}
         />
         <LoginRegisterHeader
-          heading={"Register your account"}
-          desc={"Sign up  your account"}
+          heading={"Register"}
+          desc={"Create new account today."}
           inputItem={registerInputItem}
           type={"register"}
         />
