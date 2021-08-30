@@ -16,7 +16,7 @@ const useStyles = makeStyles({
     }
   },
 });
-export const CustomButton = ({name, handleClick, ...props})=> {
+export const CustomButton = ({name, handleClick, style, ...props})=> {
   const classes = useStyles(props);
   const [mouseOver, setMouseOver] = useState(false);
   return(
@@ -26,7 +26,7 @@ export const CustomButton = ({name, handleClick, ...props})=> {
       color="inherit" 
       className={classes.root}
       onClick={handleClick}
-      style={{color: mouseOver?'white': colors.themeColor2}}
+      style={{color: mouseOver?'white': colors.themeColor2, ...style}}
       {...props}
     >
       {name}
