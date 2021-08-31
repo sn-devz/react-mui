@@ -10,14 +10,18 @@ const useStyles = makeStyles((theme) => ({
         minWidth: 200,
         borderRadius: '0.7rem',
     },
-    media: {
+    media: props=> ({
         width: 'inherit',
+        height: props.imgHeight?props.imgHeight:'11rem',
         objectFit: 'cover',
         '&:hover': {
             transform: 'scale(1.05)',
             transition: 'transform 0.7s'
         },
-    },
+        [theme.breakpoints.down("xs")]: {
+            height: '11rem'
+        },
+    }),
     name: {
         whiteSpace: 'nowrap',
         overflow: 'hidden'
@@ -42,8 +46,8 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export const ListingCard = ({data})=> {
-    const classes = useStyles();
+export const ListingCard = ({data, imgHeight})=> {
+    const classes = useStyles({imgHeight});
     const history = useHistory();
     const {imageURL, name, price, model, mileage, transmission} = data;
     return(
@@ -57,7 +61,6 @@ export const ListingCard = ({data})=> {
                 <CardContent className={classes.content}>
                     <Typography gutterBottom variant="h6" className={classes.name}>
                         {name??""}
-                        {/* {name.toString().length>25?"...":""} */}
                     </Typography>
                     <Typography gutterBottom variant="h5" className={classes.price}>
                         {`PKR ${price?price:""}`}
