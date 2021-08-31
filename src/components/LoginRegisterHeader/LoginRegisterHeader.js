@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   socialGridDiv: {
     display: "flex",
     height: "3.5rem",
-    backgroundColor: "white",
+    backgroundColor: colors.white,
     margin: "0.3rem 0.45rem",
     boxShadow: "0 0 4px lightgray",
     // border: "0.01rem solid lightgray",
@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   simpText: {
-    color: "#000",
+    color: colors.black,
     fontWeight: "bold",
     fontSize: "0.9rem",
   },
@@ -92,6 +92,9 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "100",
     textDecorationLine: "underline",
   },
+  checkboxContainer: {
+    background: "white",
+  },
 }));
 
 export const LoginRegisterHeader = ({
@@ -119,14 +122,14 @@ export const LoginRegisterHeader = ({
             <FormControlLabel
               control={
                 <Checkbox
+                  // className={classes.checkboxContainer}
+                  // style={{ backgroundColor: "white" }}
                   checked={state}
                   onChange={handleChange}
                   name={"remeber"}
+                  size={"small"}
                   // iconStyle={{ fill: "white" }}
                   // color={}
-                  // style={{
-                  //   color: state ? colors.themeColor2 : "lightgray",
-                  // }}
                 />
               }
               label="Remember"

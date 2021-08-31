@@ -111,35 +111,41 @@ appTheme.overrides = {
   MuiCheckbox: {
     root: {
       "& .MuiSvgIcon-root": {
-        fill: colors.white,
+        fill: "white",
       },
       "&$checked": {
         "& .MuiSvgIcon-root": {
-          fill: colors.themeColor2,
+          fill: "red",
+        },
+        "& .MuiIconButton-label": {
+          position: "relative",
+          zIndex: 0,
         },
         "& .MuiIconButton-label:after": {
+          content: '""',
           left: 4,
           top: 4,
           height: 15,
           width: 15,
           position: "absolute",
           zIndex: -1,
-          color: colors.white,
         },
       },
       "&:not($checked) .MuiIconButton-label": {
         position: "relative",
         zIndex: 0,
       },
-      "&:not($checked) .MuiIconButton-label:before": {
+      "&:not($checked) .MuiIconButton-label:after": {
+        content: '""',
         left: 4,
         top: 4,
-        height: 18,
-        width: 18,
+        height: 15,
+        width: 15,
         position: "absolute",
         backgroundColor: colors.white,
         zIndex: -1,
-        boxShadow: "0px 0px 0.4rem lightgray",
+        boxShadow: "0 0 0.6rem lightgray",
+        // border: "0.1rem solid lightgray",
       },
     },
   },
