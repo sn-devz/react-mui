@@ -65,6 +65,7 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: 'bold',
         alignSelf: 'center',
         paddingRight: '10px',
+        cursor: 'pointer',
         "&:hover": {
             color: colors.themeColor2,
         }
@@ -151,7 +152,9 @@ export const Navbar = ()=> {
         <div>
             <AppBar position='fixed' className={classes[navRef.current]} >
                 <Toolbar>
-                    <Typography className={classes.logo}>Carsriver<span style={{color: colors.themeColor2}}>.com</span></Typography>
+                    <Typography className={classes.logo} onClick={()=>{history.push('/')}}>
+                        Carsriver<span style={{color: colors.themeColor2}}>.com</span>
+                    </Typography>
                     <div className={classes.tabsSection}>
                         <MappedItems navBackground={navBackground}/>
                     </div>

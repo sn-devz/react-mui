@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { makeStyles, Box, Grid, Typography, Divider, Card } from "@material-ui/core";
 import Carousel from 'react-multi-carousel';
 import CardImage from '../../assets/images/cardImg.jpg';
@@ -101,6 +101,9 @@ const carData = {
 }
 export const CarDetails = ()=> {
     const classes = useStyles();
+    useEffect(()=>{
+        window.scroll(0,0);
+    })
     return(
         <div className={classes.root}>
             <Grid container>
