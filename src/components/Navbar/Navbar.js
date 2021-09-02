@@ -77,6 +77,7 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       color: colors.themeColor2,
     },
+    cursor: "pointer",
   },
   toggleDrawer: {
     [theme.breakpoints.up("md")]: {
@@ -150,6 +151,16 @@ export const Navbar = () => {
     setToggle(open);
   };
 
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const show = window.scrollY > 50;
+  //     if (show) {
+  //       setNavBackground("rootSolid");
+  //     } else {
+  //       setNavBackground("root");
+  //     }
+  //   };
+
   useEffect(() => {
     const handleScroll = () => {
       const show = window.scrollY > 50;
@@ -173,7 +184,12 @@ export const Navbar = () => {
     <div>
       <AppBar position="fixed" className={classes[navRef.current]}>
         <Toolbar>
-          <Typography className={classes.logo}>
+          <Typography
+            className={classes.logo}
+            onClick={() => {
+              history.push("/");
+            }}
+          >
             Carsriver<span style={{ color: colors.themeColor2 }}>.com</span>
           </Typography>
           <div className={classes.tabsSection}>
@@ -230,5 +246,7 @@ export const Navbar = () => {
         </div>
       </AppBar>
     </div>
+    //   </AppBar>
+    // </div>
   );
 };

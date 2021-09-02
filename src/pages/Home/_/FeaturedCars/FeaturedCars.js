@@ -13,8 +13,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
   },
   gridStyle: {
-    paddingTop: "1rem",
-    padding: "0.5rem",
+    padding: "1rem 0.5rem ",
   },
 
   leftGrid: {
@@ -56,7 +55,7 @@ export const FeaturedCars = () => {
         </Typography>
       </Grid>
       <Grid item xs={12} sm={12} md={6} className={classes.leftGrid}>
-        <ListingCard data={ListingsData[0]} imgHeight="32.28rem" />
+        <ListingCard data={ListingsData[0]} imgHeight="32.8rem" />
       </Grid>
       <Grid item xs={12} sm={12} md={6} style={{ marginTop: "1rem" }}>
         <Grid container>

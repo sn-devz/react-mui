@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
       transform: "scale(1.05)",
       transition: "transform 0.7s",
     },
+    
     [theme.breakpoints.down("xs")]: {
       height: "11rem",
     },
