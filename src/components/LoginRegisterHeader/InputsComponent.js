@@ -6,17 +6,14 @@ const useStyles = makeStyles((theme) => ({
   item: {
     margin: "0.2rem ",
   },
-  carsModal: {
+  inputModal: {
     height: "50px",
-    width: "100%",
+    width: "99%",
     backgroundColor: colors.white,
     borderRadius: "0.5rem",
+    boxShadow: "0 0 0.2rem lightgrey",
     border: "1px solid lightgrey",
     paddingLeft: "0.5rem",
-    "&:focus": {
-      outline: "none",
-      borderColor: colors.themeColor2,
-    },
     "&::placeholder": {
       paddingLeft: "10px",
     },
@@ -27,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const InputConponnet = ({ inputName, inputType, inputPlaceHolder }) => {
+export const InputComponent = ({ inputName, inputType, inputPlaceHolder }) => {
   const classes = useStyles();
   return (
     <div>
@@ -35,7 +32,7 @@ export const InputConponnet = ({ inputName, inputType, inputPlaceHolder }) => {
         <Grid item xs={12}>
           <div className={classes.item}>
             <input
-              className={classes.carsModal}
+              className={classes.inputModal}
               name={inputName}
               type={inputType}
               placeholder={inputPlaceHolder}

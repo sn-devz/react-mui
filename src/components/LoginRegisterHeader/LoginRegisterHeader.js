@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, makeStyles, Typography, Grid, Button } from "@material-ui/core";
 import { FaceBookIcon, GoogleIcon } from "../../assets/icons/index";
 import { colors } from "../../utils/constanst/Colors";
-import { InputConponnet } from "./index";
+import { InputComponent } from "./index";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Radio from "@material-ui/core/Radio";
@@ -14,23 +14,29 @@ const useStyles = makeStyles((theme) => ({
   mainContainer: {
     width: "30rem",
   },
+  alignCenter: {
+    alignSelf: "center",
+  },
   heading: {
-    fontSize: "2.3rem",
-    fontSize: "900",
+    fontSize: "2rem",
+    fontWeight: "900",
+    [theme.breakpoints.down("md")]: {
+      textAlign: "center",
+    },
   },
   headingDesc: {
     fontWeight: "100",
     marginTop: "1rem",
+
     color: colors.black,
+    [theme.breakpoints.down("md")]: {
+      textAlign: "center",
+      fontSize: "1rem",
+    },
   },
   socialIconStyle: {
     width: "2.2rem",
     marginRight: "0.3rem",
-  },
-  socialLoginContainer: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
   },
   socialAuthText: {
     fontSize: "1.4rem",
@@ -42,10 +48,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: colors.white,
     margin: "0.3rem 0.45rem",
     boxShadow: "0 0 4px lightgray",
-    // border: "0.01rem solid lightgray",
     borderRadius: "0.7rem",
     width: "10.1rem",
-    [breakpoints.down("sm")]: {
+    [breakpoints.down("md")]: {
       width: "100%",
     },
     "&:hover": {
@@ -61,14 +66,16 @@ const useStyles = makeStyles((theme) => ({
     color: colors.black,
     fontWeight: "bold",
     fontSize: "0.9rem",
-  },
-  m: {
-    backgroundColor: (props) => props.backcolor,
-    justifyContent: "center",
-    padding: "10rem 0",
+    [theme.breakpoints.down("md")]: {
+      textAlign: "center",
+      marginBottom: "0.4rem",
+    },
   },
 
-  checkBoxContainer: { display: "flex", alignItems: "center" },
+  checkBoxContainer: {
+    display: "flex",
+    alignItems: "center",
+  },
   modelBtn: {
     backgroundColor: colors.themeColor2,
     color: colors.white,
@@ -76,11 +83,14 @@ const useStyles = makeStyles((theme) => ({
     margin: "1rem 0",
     borderRadius: "0.5rem",
     fontSize: "1.2rem",
+    [breakpoints.down("md")]: {
+      width: "100%",
+    },
   },
   radioContainer: {
     display: "flex",
     flexDirection: "row",
-    margin: "2rem 0",
+    margin: "1rem 0",
   },
   linkContainer: {
     fontWeight: "600",
@@ -92,8 +102,18 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "100",
     textDecorationLine: "underline",
   },
-  checkboxContainer: {
-    background: "white",
+
+  buttonContainer: {
+    padding: "0 1rem",
+    [breakpoints.up("lg")]: {
+      display: "none",
+    },
+  },
+  btnStyle: {
+    width: "13rem",
+    height: "4rem",
+    borderRadius: "0.5rem",
+    boxShadow: "0 0 0.2rem lightgray",
   },
 }));
 
@@ -102,40 +122,38 @@ export const LoginRegisterHeader = ({
   desc,
   inputItem,
   type,
+  callback,
+  check,
   ...props
 }) => {
   const classes = useStyles(props);
   const [state, setState] = React.useState(false);
+  const [value, setValue] = useState("business");
+
   const handleChange = () => {
     setState(!state);
   };
-  const [value, setValue] = useState("");
-
   const handleChangeF = (event) => {
     setValue(event.target.value);
   };
   const loginCheckBox = () => {
     return (
       <Grid container>
-        <Grid container className={classes.checkBoxContainer}>
+        <Grid container style={{ padding: "0 0 0 0.5rem" }}>
           <Grid item xs={6} sm={6}>
             <FormControlLabel
               control={
                 <Checkbox
-                  // className={classes.checkboxContainer}
-                  // style={{ backgroundColor: "white" }}
                   checked={state}
                   onChange={handleChange}
                   name={"remeber"}
                   size={"small"}
-                  // iconStyle={{ fill: "white" }}
-                  // color={}
                 />
               }
               label="Remember"
             />
           </Grid>
-          <Grid item xs={6} sm={6}>
+          <Grid item xs={6} sm={6} className={classes.alignCenter}>
             <Typography className={classes.forgetPass}>
               ForgetPassword
             </Typography>
@@ -147,7 +165,7 @@ export const LoginRegisterHeader = ({
   };
   const registerBox = () => {
     return (
-      <Grid container>
+      <Grid container style={{ padding: "0 0 0 0.5rem" }}>
         <RadioGroup
           className={classes.radioContainer}
           value={value}
@@ -178,8 +196,7 @@ export const LoginRegisterHeader = ({
               <Checkbox
                 checked={state}
                 onChange={handleChange}
-                name={"remeber"}
-                style={{ color: colors.themeColor2 }}
+                name={"acceptTerms"}
               />
             }
             label="I accept the"
@@ -193,67 +210,108 @@ export const LoginRegisterHeader = ({
       </Grid>
     );
   };
-
   return (
-    <Grid container md={6} sm={6} xs={12} className={classes.m}>
-      <div className={classes.mainContainer}>
-        <Grid item md={12} sm={12} xs={12}>
-          <Box mt={5} mb={8}>
-            <Typography className={classes.heading} variant="h2">
-              {heading}
+    <div className={classes.mainContainer}>
+      <Grid item md={12} sm={12} xs={12}>
+        <Grid container sm={12} className={classes.buttonContainer}>
+          <Grid
+            item
+            xs={6}
+            sm={6}
+            style={{ display: "flex", padding: "0 0.8rem" }}
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Button
+              style={{
+                backgroundColor: check
+                  ? colors.smlLoginScreenBtn
+                  : colors.white,
+              }}
+              className={classes.btnStyle}
+              onClick={() => {
+                callback(true);
+              }}
+            >
+              Login
+            </Button>
+          </Grid>
+          <Grid
+            item
+            xs={6}
+            sm={6}
+            style={{ display: "flex", padding: "0 0.8rem" }}
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Button
+              style={{
+                backgroundColor: check
+                  ? colors.white
+                  : colors.smlLoginScreenBtn,
+              }}
+              className={classes.btnStyle}
+              onClick={() => callback(false)}
+            >
+              Register
+            </Button>
+          </Grid>
+        </Grid>
+        <Box mt={5} mb={3}>
+          <Typography className={classes.heading} variant="h2">
+            {heading}
+          </Typography>
+          <Typography variant="h5" className={classes.headingDesc}>
+            {desc}
+          </Typography>
+        </Box>
+        <Grid container>
+          <Grid
+            item
+            xs={12}
+            sm={12}
+            md={12}
+            lg={3}
+            className={classes.alignCenter}
+          >
+            <Typography variant="h5" className={classes.simpText}>
+              Continue with:
             </Typography>
-            <Typography variant="h5" className={classes.headingDesc}>
-              {desc}
-            </Typography>
-          </Box>
-          <Grid container>
-            <Grid item xs={12} sm={12} md={3} style={{ alignSelf: "center" }}>
-              <Typography variant="h5" className={classes.simpText}>
-                Continue with :
+          </Grid>
+          <div className={classes.socialGridDiv}>
+            <Grid item xs={12} sm={12} md={12} className={classes.socialGrid}>
+              <img src={GoogleIcon} className={classes.socialIconStyle} />
+              <Typography className={classes.socialAuthText}>Google</Typography>
+            </Grid>
+          </div>
+
+          <div className={classes.socialGridDiv}>
+            <Grid item xs={12} sm={12} md={12} className={classes.socialGrid}>
+              <img src={FaceBookIcon} className={classes.socialIconStyle} />
+              <Typography className={classes.socialAuthText}>
+                FaceBook
               </Typography>
             </Grid>
-            <div className={classes.socialGridDiv}>
-              <Grid item xs={12} sm={12} md={12} className={classes.socialGrid}>
-                <img src={GoogleIcon} className={classes.socialIconStyle} />
-                <Typography className={classes.socialAuthText}>
-                  Google
-                </Typography>
-              </Grid>
-            </div>
-
-            <div className={classes.socialGridDiv}>
-              <Grid item xs={12} sm={12} md={12} className={classes.socialGrid}>
-                <img src={FaceBookIcon} className={classes.socialIconStyle} />
-                <Typography className={classes.socialAuthText}>
-                  FaceBook
-                </Typography>
-              </Grid>
-            </div>
-          </Grid>
-          <Box mt={5} mb={5}>
-            <Typography variant="h4" className={classes.headingDesc}>
-              or
-            </Typography>
-          </Box>
-          {/* {
-                            new Array(inputItem).fill(null).map((index) => {
-                              return <InputConponnet/>
-                            })
-                        } */}
-
-          {inputItem.map((item) => {
-            return (
-              <InputConponnet
-                inputType={item.inputType}
-                inputName={item.inputName}
-                inputPlaceHolder={item.inputPlactHolder}
-              />
-            );
-          })}
-
-          {type === "login" ? loginCheckBox() : registerBox()}
+          </div>
         </Grid>
-      </div>
-    </Grid>
+        <Box mt={5} mb={5}>
+          <Typography variant="h4" className={classes.headingDesc}>
+            or
+          </Typography>
+        </Box>
+
+        {inputItem.map((item) => {
+          return (
+            <InputComponent
+              inputType={item.inputType}
+              inputName={item.inputName}
+              inputPlaceHolder={item.inputPlactHolder}
+            />
+          );
+        })}
+
+        {type === "login" ? loginCheckBox() : registerBox()}
+      </Grid>
+    </div>
   );
 };
