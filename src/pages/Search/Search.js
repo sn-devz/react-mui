@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import { makeStyles, Breadcrumbs, IconButton, Typography, Box, Link } from "@material-ui/core";
+import { makeStyles, Breadcrumbs, Typography, Box, Link } from "@material-ui/core";
 import {NavigateNext} from "@material-ui/icons";
 import {Filters} from "./_";
 

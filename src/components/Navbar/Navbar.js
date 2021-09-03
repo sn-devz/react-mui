@@ -95,7 +95,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 const tabs = [
-  { label: "Used Cars", href: "/used-cars" },
+  { label: "Used Cars", href: "/search" },
   { label: "New Cars", href: "/new-cars" },
   { label: "Blogs", href: "/blogs" },
 ];

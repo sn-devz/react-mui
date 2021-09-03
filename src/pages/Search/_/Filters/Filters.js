@@ -11,30 +11,45 @@ const useStyles = makeStyles((theme) => ({
         margin: '1rem 0',
         padding: '1.5rem'
     },
-    clear: {fontSize: '1.1rem'}
+    text: {
+        fontSize: '1.1rem', 
+        alignSelf: 'center'
+    },
+    btn: {cursor: 'pointer'}
 }))
+const initialState = {
+    make: '',
+    model: '',
+    type: '',
+    mileage: '',
+    driveType: '',
+    fuelType: '',
+    transmission: '',
+    color: '',
+    minPrice: '',
+    maxPrice: '',
+    minYear: '',
+    maxYear: ''
+}
 export const Filters = ()=> {
     const classes = useStyles();
-    const [filters, setFilters] = useState({
-        make: '',
-        model: '',
-        type: '',
-        mileage: '',
-        driveType: '',
-        fuelType: '',
-        transmission: '',
-        color: ''
-    })
+    const [filters, setFilters] = useState(initialState);
     const handleChange = (e,name)=> {
         setFilters({
             ...filters,
             [name]: e.value
         })
     }
+    const handleChangeInput = (e,name)=> {
+        setFilters({
+            ...filters,
+            [name]: e.target.value
+        })
+    }
     return(
         <Paper className={classes.root}>
             <Grid container spacing={1}>
-                <Grid item xs={6} sm={3}>
+                <Grid item xs={12} sm={4} md={3}>
                     <DropDown
                         name="make"
                         placeHolderText="Make"
@@ -43,7 +58,7 @@ export const Filters = ()=> {
                         options={makes}
                     />
                 </Grid>
-                <Grid item xs={6} sm={3}>
+                <Grid item xs={12} sm={4} md={3}>
                     <DropDown
                         name="model"
                         placeHolderText="Model"
@@ -52,21 +67,31 @@ export const Filters = ()=> {
                         options={model}
                     />
                 </Grid>
-                <Grid item xs={6} sm={3}>
+                <Grid item xs={12} sm={4} md={3}>
                     <DualInput 
                         type="number"
                         label1="Min Price"
+                        label1Name="minPrice"
+                        label1Value={filters.minPrice}
                         label2="Max Price"
+                        label2Name="maxPrice"
+                        label2Value={filters.maxPrice}
+                        handleChange={handleChangeInput}
                     />
                 </Grid>
-                <Grid item xs={6} sm={3}>
+                <Grid item xs={12} sm={4} md={3}>
                     <DualInput 
                         type="number"
                         label1="Min Year"
+                        label1Name="minYear"
+                        label1Value={filters.minYear}
                         label2="Max Year"
+                        label2Name="maxYear"
+                        label2Value={filters.maxYear}
+                        handleChange={handleChangeInput}
                     />
                 </Grid>
-                <Grid item xs={6} sm={3}>
+                <Grid item xs={12} sm={4} md={3}>
                     <DropDown
                         name="type"
                         placeHolderText="Type"
@@ -75,7 +100,7 @@ export const Filters = ()=> {
                         options={type}
                     />
                 </Grid>
-                <Grid item xs={6} sm={3}>
+                <Grid item xs={12} sm={4} md={3}>
                     <DropDown
                         name="mileage"
                         placeHolderText="Mileage"
@@ -84,7 +109,7 @@ export const Filters = ()=> {
                         options={mileage}
                     />
                 </Grid>
-                <Grid item xs={6} sm={3}>
+                <Grid item xs={12} sm={4} md={3}>
                     <DropDown
                         name="driveType"
                         placeHolderText="Drive Type"
@@ -93,7 +118,7 @@ export const Filters = ()=> {
                         options={driveType}
                     />
                 </Grid>
-                <Grid item xs={6} sm={3}>
+                <Grid item xs={12} sm={4} md={3}>
                     <DropDown
                         name="fuelType"
                         placeHolderText="Fuel Type"
@@ -102,7 +127,7 @@ export const Filters = ()=> {
                         options={fuelType}
                     />
                 </Grid>
-                <Grid item xs={6} sm={3}>
+                <Grid item xs={12} sm={4} md={3}>
                     <DropDown
                         name="transmission"
                         placeHolderText="Transmission"
@@ -111,7 +136,7 @@ export const Filters = ()=> {
                         options={transmission}
                     />
                 </Grid>
-                <Grid item xs={6} sm={3}>
+                <Grid item xs={12} sm={4} md={3}>
                     <DropDown
                         name="color"
                         placeHolderText="Color"
@@ -120,11 +145,20 @@ export const Filters = ()=> {
                         options={carColors}
                     />
                 </Grid>
-                <Box display='flex' mt={2} mr={1} marginLeft='auto'>
-                    <NavigateNext color='action'/>
-                    <Typography variant='body2' className={classes.clear}>Clear all</Typography>
-                </Box>
             </Grid>
+            <Box display='flex' mt={2} mr={1}>
+                <Box display='flex'>
+                    <Box alignSelf='center'><NavigateNext color='action'/></Box>
+                    <Typography variant='body2' className={`${classes.text} ${classes.btn}`} onClick={()=>setFilters(initialState)}>
+                        Clear all
+                    </Typography>
+                </Box>
+                <Box display='flex' ml={2}>
+                    <Typography variant='h4' className={classes.text}>
+                        {`Filters(${Object.keys(filters).filter(e=>filters[e]).length})`}
+                    </Typography>
+                </Box>
+            </Box>
         </Paper>
     )
 }
