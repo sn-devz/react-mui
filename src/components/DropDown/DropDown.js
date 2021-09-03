@@ -10,16 +10,15 @@ import { colors } from "../../utils";
     }
   });
   const customStyles = {
-    control: provided => ({
+    control: (provided, state) => ({
       ...provided,
+      color: colors.themeColor2,
       fontSize: 15,
       backgroundColor: colors.white,
       outline: 'none',
       boxShadow: 'none',
       borderRadius: '15px',
-      "&:hover": {
-        borderColor: colors.themeColor2
-      },
+      border: state.isFocused?`0.1px solid ${colors.themeColor2} !important`:`0.1px solid lightgrey !important`,
     }),
     indicatorsContainer: provided => ({
       ...provided,
@@ -30,8 +29,7 @@ import { colors } from "../../utils";
     }),
     dropdownIndicator: provided => ({
       ...provided,
-    }),
-
+    })
   };
  
 
@@ -42,9 +40,12 @@ export const DropDown = ({options,selectedOption,setSelectedOption,placeHolderTe
         <Select
           styles={customStyles}
           defaultValue={selectedOption}
-          onChange={setSelectedOption}
+          onChange={(e)=>setSelectedOption(e, props.name)}
           options={options}
           placeholder={placeHolderText}
+          components={{
+            IndicatorSeparator: () => null
+          }}
         />
       </div>
     )

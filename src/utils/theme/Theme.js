@@ -9,6 +9,10 @@ export const appTheme = createTheme({
     },
     secondary:{
       main:'#ff4605',
+    },
+    info: {
+      main: '#64b5f6',
+      light: '#f2f5fb'
     }
   },
  
