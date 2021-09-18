@@ -48,7 +48,7 @@ export const LoginRegister = () => {
     {
       inputName: "Email",
       inputType: "text",
-      inputPlactHolder: "Email and UserName",
+      inputPlactHolder: "Email",
     },
     {
       inputName: "Password",
@@ -60,7 +60,7 @@ export const LoginRegister = () => {
     {
       inputName: "userName",
       inputType: "text",
-      inputPlactHolder: "UserName*",
+      inputPlactHolder: "User Name*",
     },
     {
       inputName: "email",

@@ -95,7 +95,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 const tabs = [
-  { label: "Used Cars", href: "/used-cars" },
+  { label: "Used Cars", href: "/search" },
   { label: "New Cars", href: "/new-cars" },
   { label: "Blogs", href: "/blogs" },
 ];
@@ -150,16 +150,6 @@ export const Navbar = () => {
     }
     setToggle(open);
   };
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const show = window.scrollY > 50;
-  //     if (show) {
-  //       setNavBackground("rootSolid");
-  //     } else {
-  //       setNavBackground("root");
-  //     }
-  //   };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -246,7 +236,5 @@ export const Navbar = () => {
         </div>
       </AppBar>
     </div>
-    //   </AppBar>
-    // </div>
   );
 };

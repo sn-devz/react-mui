@@ -18,8 +18,10 @@ const useStyles = makeStyles((theme) => ({
     alignSelf: "center",
   },
   heading: {
-    fontSize: "2rem",
-    fontWeight: "900",
+    [theme.breakpoints.up("md")]: {
+      fontSize: "2rem",
+      fontWeight: "900",
+    },
     [theme.breakpoints.down("md")]: {
       textAlign: "center",
     },
@@ -32,6 +34,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       textAlign: "center",
       fontSize: "1rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "0.9rem",
     },
   },
   socialIconStyle: {

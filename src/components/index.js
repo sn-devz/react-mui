@@ -7,3 +7,4 @@ export * from './ListingCard';
 export * from './FeatureBadge';
 export * from './LoginRegisterHeader';
 export * from './Listings';
+export * from './DualInput';
